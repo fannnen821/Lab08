@@ -3,6 +3,7 @@ package com.example.lab08;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 public class CustomListTest {
+    @Test
     void testHasCity() {
         CustomList list = new CustomList();
         City city = new City("Edmonton", "Alberta");
@@ -10,7 +11,24 @@ public class CustomListTest {
 
         assertTrue(list.hasCity(city));
 
-        City nonExisting = new City("Toronto", "Ontario");
-        assertFalse(list.hasCity(nonExisting));
+        City cgy = new City("Calgary", "Alberta");
+        assertFalse(list.hasCity(cgy));
     }
+
+    @Test
+    void testDeleteCity() {
+        CustomList list = new CustomList();
+
+        City cgy = new City("Calgary", "Alberta");
+        City van = new City("Vancouver", "British Columbia");
+
+        list.addCity(cgy);
+        list.addCity(van);
+        assertTrue(list.hasCity(cgy));
+        assertTrue(list.hasCity(van));
+        list.deleteCity(cgy);
+        assertFalse(list.hasCity(cgy));
+        assertTrue(list.hasCity(van));
+    }
+
 }
