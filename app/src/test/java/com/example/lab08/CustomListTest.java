@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 public class CustomListTest {
     void testHasCity() {
-        CustomList list = new CustomList(null, null);
+        CustomList list = new CustomList();
         City city = new City("Edmonton", "Alberta");
         list.addCity(city);
 
